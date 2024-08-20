@@ -1,0 +1,45 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'udp_proxy'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=udp_proxy",
+                    "--package=udp_proxy"
+                ],
+                "filter": {
+                    "name": "udp_proxy",
+                    "kind": "bin"
+                }
+            },
+            "args": ["162.159.192.227:903", "127.0.0.1:8080"],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'udp_proxy'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=udp_proxy",
+                    "--package=udp_proxy"
+                ],
+                "filter": {
+                    "name": "udp_proxy",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

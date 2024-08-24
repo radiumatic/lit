@@ -178,7 +178,6 @@ jobs:
         run: | 
           gh release create ${{ github.ref_name }} lit-* --generate-notes --title "Version ${{ github.ref_name }}"
         if: matrix.toolchain == 'stable' && startsWith( github.ref, 'refs/tags/v' )
-        permissions:
-          contents: write
+
 
         

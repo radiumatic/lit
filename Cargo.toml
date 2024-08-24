@@ -1,11 +1,10 @@
 
 [package]
-name = "udp_proxy"
+name = "lit"
 version = "0.1.0"
 author = "Your Name"
 edition = "2021"
 [dependencies]
-tokio = { version = "^1", features = ["full"] }
 rand = "0.8"
 
 

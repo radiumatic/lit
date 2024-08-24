@@ -166,7 +166,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: lit-${{ matrix.platform.os_name }}
-          path: "target/${{ matrix.platform.target }}/release/${{ matrix.platform.name }}"
+          path: ${{ matrix.platform.name }}
         if: matrix.toolchain == 'stable' && ( startsWith( github.ref, 'refs/tags/v' ) ||
             github.ref == 'refs/tags/test-release' )
   release:

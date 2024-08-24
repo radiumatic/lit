@@ -10,7 +10,7 @@ on:
 
 env:
   CRATE_NAME: lit
-  GITHUB_TOKEN: ${{ github.token }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   RUST_BACKTRACE: 1
 
 jobs:
@@ -166,12 +166,12 @@ jobs:
         with:
           name: lit-${{ matrix.platform.os_name }}
           path: "lit-*"
-        if: matrix.toolchain == 'stable' && github.ref == 'refs/tags/test-release'
+        if: matrix.toolchain == 'stable' && ( startsWith( github.ref, 'refs/tags/v' ) ||
+            github.ref == 'refs/tags/test-release' )
       - name: Generate SHA-256
         run: shasum -a 256 ${{ matrix.platform.name }}
         if: |
           matrix.toolchain == 'stable' &&
-          matrix.platform.os == 'macOS-latest' &&
           ( startsWith( github.ref, 'refs/tags/v' ) ||
             github.ref == 'refs/tags/test-release' )
       - name: Publish GitHub release

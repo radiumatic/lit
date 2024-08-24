@@ -24,7 +24,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     let len: usize = rng.gen_range(1..=1024);
 
     // Create a buffer with the random length
-    let mut buf = [0; 1024];
+    let mut buf = vec![0; len];
     // Fill the buffer with random data
     rng.fill(&mut buf[..]);
     client_socket.recv_from(&mut buf).unwrap();

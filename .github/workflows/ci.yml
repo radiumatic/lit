@@ -182,7 +182,7 @@ jobs:
           path: ./release-artifacts
       - name: Generate SHA-256 for artifacts
         run: |
-          for file in ./release-artifacts/*; do
+          for file in ./release-artifacts/*/*; do
             shasum -a 256 "$file" > "${file}.sha256"
           done
       - name: Publish GitHub release
